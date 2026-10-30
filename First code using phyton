@@ -1,0 +1,65 @@
+# First-time-programming
+try:
+    A1 = float(input("Qual o primeiro numero? "))
+    A2 = float(input("Qual o segundo numero? "))
+except ValueError:
+    print("Entrada inválida.")
+    raise SystemExit(1)
+
+def get_A3():
+    return A1 + A2
+
+if A1 <= 10:
+    resp = input("Quer adicionar mais ao primeiro numero? (sim/nao) ").strip().lower()
+    if resp == "sim":
+        try:
+            adicional = float(input("Qual o valor? "))
+        except ValueError:
+            print("Valor inválido.")
+        else:
+            A1 += adicional
+
+if A2 <= 10:
+    resp = input("Quer adicionar mais ao segundo numero? (sim/nao) ").strip().lower()
+    if resp == "sim":
+        try:
+            adicional = float(input("Qual o valor? "))
+        except ValueError:
+            print("Valor inválido.")
+        else:
+            A2 += adicional
+
+resultado = get_A3()
+
+if resultado > 0:
+    resp = input("Quer que eu faça mais alguma conta? (sim/nao)").strip().lower()
+    if resp == "sim":
+        op = input("escolha uma operação: (divisao/multiplicacao)").strip().lower()
+
+        if op == "divisao":
+            try:
+                divisor = float(input("Quantas vezes?"))
+            except ValueError:
+                print("Valor inválido")
+            else:
+                if divisor == 0:
+                    print("Não é possível dividir por zero.")
+                else:
+                    resultado = resultado / divisor
+
+        elif op == "multiplicacao":
+            try:
+                fator = float(input("Quantas vezes?"))
+            except ValueError:
+                print("Valor inválido")
+            else:
+                resultado = resultado * fator
+
+        else:
+            print("Operação desconhecida.")
+else:
+    print("Operação desconhecida.")
+
+print("A1 =", A1)
+print("A2 =", A2)
+print("Resultado final =", resultado)
